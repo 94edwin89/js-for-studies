@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<p>Q15 sum of given prime number</p>
+<p>give number is 2 to 15</p>
+<p>sum of prime number between 2 and 15 is : </p>
+<p id="demo"></p>
+
+
+
+
+
+
+
+
+    <script>
+         // of prime number in a given range
+     
+    // Method to compute the prime
+    // number Time Complexity is O(sqrt(N))
+    function checkPrime(numberToCheck)
+    {
+        if(numberToCheck == 1)
+        {
+            return false;
+        }
+        for (let i = 2; i * i <= numberToCheck; i++)
+        {
+            if (numberToCheck % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+ 
+    // Method to iterate the loop from l to r
+    // If prime number detects, sum the value
+    function primeSum(l, r)
+    {
+        let sum = 0;
+        for (let i = r; i >= l; i--)
+        {
+ 
+            // Check for prime
+            let isPrime = checkPrime(i);
+            if (isPrime)
+            {
+ 
+                // Sum the prime number
+                sum = sum + i;
+            }
+        }
+        return sum;
+    }
+     
+    let l = 2, r = 15;
+  
+    // Call the method with l and r
+    document.getElementById('demo').innerHTML=(primeSum(l, r));
+    </script>
+    
+</body>
+</html>
